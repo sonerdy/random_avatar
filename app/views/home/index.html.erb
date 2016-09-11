@@ -48,10 +48,19 @@
           <button class="btn btn-primary" type="submit">Get New Avatar!</button>
         <% end %>
       </div>
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $("button").click(function() {
+          $.getJSON("/").then(function(json) {
+            $("img").attr("src", json.img);
+          });
+          return false;
+        });
+      });
+    </script>
   </body>
 </html>
